@@ -1,7 +1,9 @@
 #Platform Name= 'DEIlyzer'
 Platform Name='DEInternships'
-LogoPath =
-MainColor = #FF0000
-SecondaryColor = #FFFFFF
-
-
+LogoPath=
+MainColor= #FF0000
+SecondaryColor= #FFFFFF
+GitHub Link=https://github.com/josePedroAguiar
+X Link=https://github.com/josePedroAguiar
+Facebook Link=https://github.com/josePedroAguiar
+Instagram Link=https://github.com/josePedroAguiar

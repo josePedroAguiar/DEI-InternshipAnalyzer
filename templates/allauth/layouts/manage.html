@@ -28,9 +28,11 @@
                 <a class="{% block nav_class_profile %}nav-link text-white{% endblock %}"
                        href="{% url 'profile' %}">Profile</a>
                 </li>
+
+                    <li><hr class="divider " ></li>
                 {% endif %}
 
-                <li><hr class="divider " ></li>
+
 
                 {% url 'account_email' as email_url %}
                 {% if email_url %}
@@ -65,6 +67,18 @@
                     </li>
                 {% endif %}
 
+
+                <li><hr class="divider " ></li>
+
+                  {% url 'account_logout' as logout_url %}
+                {% if logout_url %}
+                    <li class="nav-item">
+                        <a class="{% block nav_class_logout %}nav-link text-white{% endblock %}"
+                           href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                {% endif %}
+
+            
 
 
 

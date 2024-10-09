@@ -33,9 +33,6 @@ The DEI-Internship Analyzer is a platform created to assist master’s students 
 pip install -r requirements.txt
    ```
 
-## Install dependencies:
-   ```bash
-   ```
 ## Run the application:
 
 ```bash
