@@ -1,0 +1,65 @@
+<!-- internship_detail.html -->
+{% extends 'internships/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ company.title }} Details</title>
+</head>
+
+
+<body>
+{% block content %}
+    <div class="album py-5 bg-body-tertiary">
+    <div class="container" >
+        <h1>{{ company.title }} Details</h1>
+
+        <div class="row">
+            <div class="col-md-6 ">
+                <p> {{ company.company }}</p>
+                <p>Location: {{ company.location }}</p>
+                <p>Duration: {{ company.duration }} weeks</p>
+                <p>Description: {{ company.description }}</p>
+                <p>Requirements: {{ company.requirements }}</p>
+                <p>Rating: {{ company.average_rating }}</p>
+            </div>
+        </div>
+
+        <h2>Reviews</h2>
+        {% for review in reviews %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">User: {{ review.user.username }}</h5>
+                    <p class="card-text">Rating: {{ review.rating }}/10</p>
+                    <p class="card-text">Comment: {{ review.comment }}</p>
+                    <p class="card-text">Date: {{ review.created_at }}</p>
+                    {% if user.is_authenticated or 1 == 1 %}
+                        <form method="post" action="{% url 'remove_review' company.id review.id %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-danger">Remove Review</button>
+                        </form>
+                        <form method="post" action="{% url 'edit_review' company.id review.id %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary">Edit Review</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+        <h2>Add a Review</h2>
+        <form method="post" action="{% url 'add_review' company.id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Submit Review</button>
+        </form>
+
+        <a href="{% url 'internship_list' %}" class="btn btn-secondary mt-3">Back to Internship Listings</a>
+    </div>
+    </div>
+{% endblock %}
+</body>
+
+</html>

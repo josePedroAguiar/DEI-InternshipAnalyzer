@@ -1,0 +1,7 @@
+#Platform Name= 'DEIlyzer'
+Platform Name='DEInternships'
+LogoPath =
+MainColor = #FF0000
+SecondaryColor = #FFFFFF
+
+

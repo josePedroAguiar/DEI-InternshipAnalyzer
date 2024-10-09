@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oops! Page Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 600px;
+        }
+
+        .icon-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-size: 100px;
+            color: #26B3DF;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #26B3DF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #1a90b1;
+        }
+
+        svg {
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="icon-text">
+        <svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24.65 12.5C24.65 19.2102 19.2103 24.65 12.5 24.65C5.78974 24.65 0.35 19.2102 0.35 12.5C0.35 5.78974 5.78974 0.35 12.5 0.35C19.2103 0.35 24.65 5.78974 24.65 12.5Z" fill="#EBE8E8" stroke="black" stroke-width="0.7"/>
+            <ellipse cx="12.5" cy="12.5" rx="6.80556" ry="6.75287" fill="#26B3DF"/>
+            <path d="M16.3167 12.5C16.3167 14.693 14.5711 16.4604 12.4306 16.4604C10.29 16.4604 8.54444 14.693 8.54444 12.5C8.54444 10.307 10.29 8.53967 12.4306 8.53967C14.5711 8.53967 16.3167 10.307 16.3167 12.5Z" fill="#050505" stroke="black" stroke-width="0.7"/>
+            <ellipse cx="9.65278" cy="9.62645" rx="2.15278" ry="2.15517" fill="#FFFEFE" fill-opacity="0.9"/>
+        </svg>
+        <span>404</span>
+    </div>
+    <h1>Oops! You Blinked and it Vanished!</h1>
+    <p>It seems this page got a little shy and decided to hide. 😳</p>
+    <p>Don't worry, it's probably just lost in cyberspace. You can head back home and try to find it again.</p>
+    <a href="{% url 'home' %}">Take Me Home, I'm Scared</a>
+</div>
+</body>
+</html>
