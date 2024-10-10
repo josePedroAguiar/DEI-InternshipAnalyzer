@@ -35,6 +35,8 @@ class TestUrls(TestCase):
 
     def test_internship_detail_url_with_invalid_args(self):
         with self.assertRaises(NoReverseMatch):
-            url = reverse('internship_detail', args=['invalid'])
+            url = reverse('internship_detail', args=['invalid_arg'])
             self.assertEqual(resolve(url).func, internship_detail)
+
+
 # Run the test with the following command: python manage.py estagioapps

@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ),
                 ("title", models.CharField(max_length=255)),
                 ("rating", models.IntegerField()),
-                ("comment", models.TextField()),
+                ("review", models.TextField()),
                 ("created_at", models.DateTimeField(auto_now_add=True)),
                 (
                     "company",

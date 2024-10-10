@@ -5,9 +5,7 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         #rating should be between 1 and 10
-
-
-        fields = ['rating','comment']  # Adjust fields as needed
+        fields = ['rating','review']  # Adjust fields as needed
 
         def clean_rating(self):
             rating = self.cleaned_data.get('rating')

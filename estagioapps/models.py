@@ -27,7 +27,7 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])  # 1 to 10 scale
-    comment = models.TextField()
+    review = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

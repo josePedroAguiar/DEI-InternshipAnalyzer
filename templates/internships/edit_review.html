@@ -45,7 +45,7 @@
                 <div class="card-body">
                     <h5 class="card-title">User: {{ review.user.username }}</h5>
                     <p class="card-text">Rating: {{ review.rating }}/10</p>
-                    <p class="card-text">Comment: {{ review.comment }}</p>
+                    <p class="card-text">Review: {{ review.comment }}</p>
                     <p class="card-text">Date: {{ review.created_at }}</p>
                     {% if user.is_authenticated and user.username == review.user.username %}
 
@@ -84,8 +84,8 @@
                 {{ form.rating }}
             </p>
             <p>
-                <label for="{{ form.comment.id_for_label }}">Comment:</label>
-                {{ form.comment }}
+                <label for="{{ form.comment.id_for_label }}">Review:</label>
+                {{ form.review }}
             </p>
             <button type="submit" class="btn btn-primary">Update Review</button>
 

@@ -18,5 +18,5 @@ class ModelsViews(TestCase):
         self.review = Review.objects.create(
             internship=self.internship,
             rating=5,
-            comment='Great company!'
+            review='Great company!'
         )
