@@ -1,6 +1,9 @@
+import logging
+
 from allauth.account.decorators import verified_email_required
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
+
 from .models import Company, Review
 from .forms import ReviewForm  # Assuming you have a ReviewForm defined
 from django.shortcuts import render, redirect
@@ -63,8 +66,8 @@ def add_review(request, company_id):
 
 @verified_email_required
 def remove_review(request, company_id, review_id):
-    review = Review.objects.get(pk=review_id)
-    if review.user != request.user or not request.user.is_staff:
+    review = get_object_or_404(Review, pk=review_id)
+    if review.user.username != request.user.username and not request.user.is_staff:
         messages.error(request, 'You are not authorized to delete this review')
         return redirect('internship_detail', company_id=company_id)
     review.delete()
@@ -75,7 +78,8 @@ def remove_review(request, company_id, review_id):
 @verified_email_required
 def edit_review(request, company_id, review_id):
     review = Review.objects.get(pk=review_id)
-    if review.user != request.user or not request.user.is_staff:
+    company = Company.objects.get(pk=company_id)
+    if review.user.username != request.user.username and not request.user.is_staff:
         messages.error(request, 'You are not authorized to edit this review')
         return redirect('internship_detail', company_id=company_id)
     if request.method == 'POST':
@@ -86,7 +90,7 @@ def edit_review(request, company_id, review_id):
     else:
         form = ReviewForm(instance=review)
     return render(request, 'internships/edit_review.html',
-                  {'form': form, 'company_id': company_id, 'review_id': review_id})
+                  {'form': form, 'company': company, 'review_id': review_id})
 
 
 def search(request):

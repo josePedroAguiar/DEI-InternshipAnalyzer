@@ -4,4 +4,13 @@ from .models import Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['comment', 'rating']  # Adjust fields as needed
+        #rating should be between 1 and 10
+
+
+        fields = ['rating','comment']  # Adjust fields as needed
+
+        def clean_rating(self):
+            rating = self.cleaned_data.get('rating')
+            if rating < 1 or rating > 10:
+                raise forms.ValidationError("Rating must be between 1 and 10")
+            return rating

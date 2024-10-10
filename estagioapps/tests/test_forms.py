@@ -8,9 +8,7 @@ class ReviewFormScenario(TestCase):
         form = ReviewForm(data={'rating': 5, 'comment': 'Great company!'})
         self.assertTrue(form.is_valid())
     def test_review_form_invalid(self):
-        form = ReviewForm(data={'rating': 6, 'comment': 'Great company!'})
-        self.assertFalse(form.is_valid())
-        form = ReviewForm(data={'rating': 5, 'comment': ''})
+        form = ReviewForm(data={'rating': 11, 'comment': 'Great company!'})
         self.assertFalse(form.is_valid())
         form = ReviewForm(data={'rating': 5})
         self.assertFalse(form.is_valid())

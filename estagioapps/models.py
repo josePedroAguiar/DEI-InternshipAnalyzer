@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Avg
+from django.core.validators import MinValueValidator, MaxValueValidator
+
 
 class Company(models.Model):
     company = models.CharField(max_length=255)
@@ -24,7 +26,7 @@ class Review(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    rating = models.IntegerField()  # 1 to 10 scale
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])  # 1 to 10 scale
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 

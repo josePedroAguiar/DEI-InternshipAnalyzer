@@ -38,7 +38,7 @@ class TestViews(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_review_form_scenario_rejects_invalid_rating(self):
-        form = ReviewForm(data={'review': 'Great product!', 'rating': 6})
+        form = ReviewForm(data={'review': 'Great product!', 'rating': 11})
         self.assertFalse(form.is_valid())
 
     def test_review_form_scenario_rejects_missing_review(self):
