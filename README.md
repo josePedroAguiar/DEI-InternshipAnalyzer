@@ -18,7 +18,6 @@ The DEI-Internship Analyzer is a platform created to assist master’s students 
 - **Future Frontend**: React (planned)
 - **Database**: PostgreSQL
 - **Data Visualization**: Django-Plotly-Dash or similar
-- **Machine Learning**: Python (Scikit-Learn, TensorFlow)
 - **Hosting and Deployment**: AWS, Google Cloud, or Heroku
 
 ## Getting Started
