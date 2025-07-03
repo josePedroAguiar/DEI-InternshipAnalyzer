@@ -1,0 +1,18 @@
+name: Called Workflow
+
+on:
+  workflow_call:
+    inputs:
+      my_input:
+        required: true
+        type: string
+env:
+  MY_INPUT: ${{ inputs.my_input }}
+jobs:
+  echo_input:
+    if: ${{ github.event_name == 'workflow_call' }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Echo input as env variable
+      run: |
+        echo "The input is: $MY_INPUT"
